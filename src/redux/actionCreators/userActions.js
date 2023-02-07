@@ -39,7 +39,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     }
     const { data } = await axios.post(
-      'http://localhost:5000/api/users/login',
+      'https://6football-shop-server.vercel.app/api/users/login',
       { email, password },
       config
     )
@@ -79,7 +79,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     }
     const { data } = await axios.post(
-      'http://localhost:5000/api/users',
+      'https://6football-shop-server.vercel.app/api/users',
       { name, email, password },
       config
     )
@@ -120,7 +120,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.get(
-      `http://localhost:5000/api/users/${id}`,
+      `https://6football-shop-server.vercel.app/api/users/${id}`,
       config
     )
     dispatch({
@@ -155,7 +155,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.put(
-      `http://localhost:5000/api/users/profile`,
+      `https://6football-shop-server.vercel.app/api/users/profile`,
       user,
       config
     )
@@ -190,7 +190,10 @@ export const usersList = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
-    const { data } = await axios.get(`http://localhost:5000/api/users`, config)
+    const { data } = await axios.get(
+      `https://6football-shop-server.vercel.app/api/users`,
+      config
+    )
     dispatch({
       type: USER_LIST_SUCCESS,
       payload: data,
@@ -221,7 +224,10 @@ export const deleteUser = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
-    await axios.delete(`http://localhost:5000/api/users/${id}`, config)
+    await axios.delete(
+      `https://6football-shop-server.vercel.app/api/users/${id}`,
+      config
+    )
     dispatch({
       type: USER_DELETE_SUCCESS,
     })
@@ -253,7 +259,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.put(
-      `http://localhost:5000/api/users/${user._id}`,
+      `https://6football-shop-server.vercel.app/api/users/${user._id}`,
       user,
       config
     )

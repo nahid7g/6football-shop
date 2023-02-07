@@ -17,7 +17,9 @@ import {
 export const listProducts = () => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
-    const { data } = await axios.get('http://localhost:5000/api/products/')
+    const { data } = await axios.get(
+      'https://6football-shop-server.vercel.app/api/products/'
+    )
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
@@ -42,7 +44,7 @@ export const deleteProduct = (productId) => async (dispatch, getState) => {
       },
     }
     await axios.delete(
-      `http://localhost:5000/api/products/${productId}`,
+      `https://6football-shop-server.vercel.app/api/products/${productId}`,
       config
     )
     dispatch({ type: PRODUCT_DELETE_SUCCESS })
@@ -70,7 +72,7 @@ export const createProduct = () => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.post(
-      `http://localhost:5000/api/products`,
+      `https://6football-shop-server.vercel.app/api/products`,
       {},
       config
     )
@@ -99,7 +101,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.put(
-      `http://localhost:5000/api/products/${product._id}`,
+      `https://6football-shop-server.vercel.app/api/products/${product._id}`,
       product,
       config
     )

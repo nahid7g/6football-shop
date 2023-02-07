@@ -12,7 +12,9 @@ import { USER_LOGOUT } from '../actionTypes/userActions'
 export const listProductDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST })
-    const { data } = await axios.get(`http://localhost:5000/api/products/${id}`)
+    const { data } = await axios.get(
+      `https://6football-shop-server.vercel.app/api/products/${id}`
+    )
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data })
   } catch (error) {
     dispatch({
@@ -39,7 +41,7 @@ export const createTheProductReview =
         },
       }
       await axios.post(
-        `http://localhost:5000/api/products/${id}/reviews`,
+        `https://6football-shop-server.vercel.app/api/products/${id}/reviews`,
         review,
         config
       )

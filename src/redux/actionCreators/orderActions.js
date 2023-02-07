@@ -37,7 +37,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.post(
-      `http://localhost:5000/api/orders`,
+      `https://6football-shop-server.vercel.app/api/orders`,
       order,
       config
     )
@@ -72,7 +72,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.get(
-      `http://localhost:5000/api/orders/${id}`,
+      `https://6football-shop-server.vercel.app/api/orders/${id}`,
       config
     )
     dispatch({
@@ -107,7 +107,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.put(
-      `http://localhost:5000/api/orders/${id}/pay`,
+      `https://6football-shop-server.vercel.app/api/orders/${id}/pay`,
       paymentResult,
       config
     )
@@ -142,7 +142,7 @@ export const deliverOrder = (order) => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.put(
-      `http://localhost:5000/api/orders/${order._id}/deliver`,
+      `https://6football-shop-server.vercel.app/api/orders/${order._id}/deliver`,
       {},
       config
     )
@@ -177,7 +177,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
       },
     }
     const { data } = await axios.get(
-      `http://localhost:5000/api/orders/myorders`,
+      `https://6football-shop-server.vercel.app/api/orders/myorders`,
       config
     )
     dispatch({
@@ -210,7 +210,10 @@ export const ordersList = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
-    const { data } = await axios.get(`http://localhost:5000/api/orders`, config)
+    const { data } = await axios.get(
+      `https://6football-shop-server.vercel.app/api/orders`,
+      config
+    )
     dispatch({
       type: ORDER_LIST_SUCCESS,
       payload: data,
