@@ -50,6 +50,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
+        <Message variant='success'>
+          Admin email: nahid.h.kiran@gmail.com
+        </Message>
+        <Message variant='success'>Admin Password: hasan1234</Message>
         <Button className='my-2' type='submit' variant='primary'>
           Sign In
         </Button>
