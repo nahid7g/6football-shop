@@ -1,4 +1,4 @@
-# Welcome to [Six Football Shop]([https://github.com/facebook/create-react-app](https://football-shop-b7a06.web.app/)).
+# Welcome to [Six Football Shop](https://football-shop-b7a06.web.app/).
 
 ## You can buy Football kit's from our Shop
 
